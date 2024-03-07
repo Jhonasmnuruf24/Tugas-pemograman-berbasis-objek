@@ -1,0 +1,23 @@
+class BangunDatar:
+    def __init__(self, nama, luas):
+        self.nama = nama
+        self.luas = luas
+
+    def hitungLuas(self, sisi1, sisi2, sisi3):
+        s = (sisi1 + sisi2 + sisi3) / 2
+        self.luas = (s * (s - sisi1) * (s - sisi2) * (s - sisi3)) ** 0.5
+
+class Lingkaran(BangunDatar):
+    def __init__(self, jariJari):
+        super().__init__("Lingkaran", (3.14 * jariJari ** 2))
+
+class Segitiga(BangunDatar):
+    def __init__(self, alas, tinggi):
+        super().__init__("Segitiga", (alas * tinggi) / 2)
+
+    def hitungLuas(self, sisi1, sisi2, sisi3):
+        super().hitungLuas(sisi1, sisi2, sisi3)
+
+class Persegi(BangunDatar):
+    def __init__(self, sisi):
+        super().__init__("Persegi", sisi ** 2)
